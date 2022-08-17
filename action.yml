@@ -3,7 +3,12 @@ description: Delete (old) files from previous workers.
 runs:
   using: 'composite'
   steps:
-    - id: cleanup
+    - id: cleanup_workspace
       uses: docker://ubuntu:latest
       with:
         args: find /github/workspace/. -name . -o -prune -exec rm -rf -- {} +
+
+    - id: cleanup_home
+      uses: docker://ubuntu:latest
+      with:
+        args: find /github/home/. -name . -o -prune -exec rm -rf -- {} +
