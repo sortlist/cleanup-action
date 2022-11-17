@@ -12,3 +12,8 @@ runs:
       uses: docker://ubuntu:latest
       with:
         args: find /github/home/. -name . -o -prune -exec rm -rf -- {} +
+
+    - id: cleanup_node # wtf is it owned by root?!
+      uses: docker://ubuntu:latest
+      with:
+        args: find /opt/actions-runners/_work/_tool/node/. -name . -o -prune -exec rm -rf -- {} +
