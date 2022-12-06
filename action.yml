@@ -16,4 +16,4 @@ runs:
     - id: cleanup_node # wtf is it owned by root?!
       uses: docker://ubuntu:latest
       with:
-        args: rm -rf /opt/actions-runners/_work/_tool/node
+        args: rm -rf /opt/actions-runner/_work/_tool/node
